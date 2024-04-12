@@ -1,19 +1,19 @@
 package ru.springbase;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
 
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         // Get Mechanism beans from the context
-        Mechanism circleMechanism = (Mechanism) context.getBean("circleMechanism");
-        Mechanism squareMechanism = (Mechanism) context.getBean("squareMechanism");
+         Mechanism circleMechanism = (Mechanism) context.getBean("circleMechanism");
+         Mechanism squareMechanism = (Mechanism) context.getBean("squareMechanism");
 
         // Call method to print messages
-        circleMechanism.printArea();
-        squareMechanism.printArea();
+         circleMechanism.printArea();
+         squareMechanism.printArea();
         
         context.close();
 	}
